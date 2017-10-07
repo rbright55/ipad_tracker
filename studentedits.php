@@ -38,7 +38,7 @@ student status
 				
 					<div class="inner">
 					<h2 align="center"><strong>Edit</strong> student</h2>
-						<form method=post>
+						<form method="post" action="classes/manageStudent.php">
 							<p><label for="upd_StudentID">Student ID</label>
 							<input class="smallbox"type="text" readonly required name="upd_StudentID" value="'.$student['Student ID'].'"></p>
 							<p><label for="upd_FirstName">First Name</label>
@@ -88,7 +88,7 @@ student status
 				<!--Add new Students-->
 					<div class="inner">
 					<h2 align="center"><strong>Add</strong> new student</h2>
-						<form method=post >
+						<form method="post" action="classes/manageStudent.php">
 							<p><label for="add_StudentID">Student ID</label>
 							<input autosuggest="off" class="smallbox"type="text" required name="add_StudentID"></p>
 							<p><label for="add_FirstName">First Name</label>

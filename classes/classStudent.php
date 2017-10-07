@@ -23,7 +23,6 @@ class student {
 		}else{
 			return 0;
 		}
-		
 	}
 
 	//get one student from id

@@ -65,21 +65,11 @@ include_once('classes/classStudent.php');
 		}
 		//add student in database
 		if (isset($_SESSION['add_StudentID'])){
-			require_once "pdo.php";
 			$mail = $_SESSION['add_Username']."@mtacademy.us";
 			$user =$_SESSION['add_Username'];
-			$adds = "INSERT INTO `students14_15` (`Student ID`, `Last Name`, `First Name`, `Email`, `Username`, `Grade`, `Homeroom`, `iPad #`, `Paid`) VALUES (:id, :lname, :fname, :email, :uname, :grade, :hroom, :ipad, :paid)";
-			$stmtadd = $pdo->prepare ($adds);
-			$stmtadd->execute(array(':id' =>$_SESSION['add_StudentID'] ,
-									':lname' =>$_SESSION['add_LastName'] ,
-									':fname' =>$_SESSION['add_FirstName'] ,
-									':email' =>$mail ,
-									':uname' =>$user ,
-									':grade' =>$_SESSION['add_Grade'] ,
-									':hroom' =>$_SESSION['add_Homeroom'] ,
-									':ipad' =>$_SESSION['add_iPad'] ,
-									':paid' =>$_SESSION['add_Paid']));
-			$_SESSION['studentmessage'] = $stmtadd->rowCount() . " record(s) ADDED succesfully";
+			$students_conn = new student;
+			$students = $students_conn->createStudent($_SESSION['add_StudentID'] , $_SESSION['add_LastName'], $_SESSION['add_FirstName'], $mail, $user, $_SESSION['add_Grade'] , $_SESSION['add_Homeroom'], $_SESSION['add_iPad'], $_SESSION['add_Paid']);
+		    $_SESSION['studentmessage'] = $students. " record(s) ADDED succesfully";
 			echo '<h1>.</h1>';
 			echo $_SESSION['studentmessage'];
 			unset($_SESSION['studentmessage']);

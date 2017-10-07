@@ -31,7 +31,7 @@ if (isset($_POST['Cancel'])){
 		$_SESSION['upd_Username'] = $_POST['upd_Username'];
 		$_SESSION['upd_Grade'] = $_POST['upd_Grade'];
 		$_SESSION['upd_iPad'] = $_POST['upd_iPad'];
-		header("Location: ./students.php?studentid=".$_SESSION['upd_StudentID']."");
+		header("Location: ../students.php?studentid=".$_SESSION['upd_StudentID']."");
 		//header("Location: #");
 		return;
 	}
@@ -56,8 +56,8 @@ if (isset($_POST['Cancel'])){
 		$_SESSION['add_iPad'] = $_POST['add_iPad'];
 
 		unset($_SESSION['add_StudentButton']);
-		header("Location: ./students.php?studentid=".$_SESSION['add_StudentID']."");
-		return;
+		header("Location: ../students.php?studentid=".$_SESSION['add_StudentID']."");
+		//return;
 	}
 
 /* buttons */
